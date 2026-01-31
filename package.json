@@ -1,0 +1,25 @@
+{
+  "name": "context-saver",
+  "version": "1.0.0",
+  "description": "Save conversation context to three-layer memory system before compaction",
+  "main": "context-saver.ts",
+  "bin": {
+    "context-saver": "./context-saver.ts"
+  },
+  "scripts": {
+    "save": "npx tsx context-saver.ts"
+  },
+  "keywords": [
+    "clawdbot",
+    "memory",
+    "context",
+    "ai-assistant"
+  ],
+  "author": "Jarvis <jarvis@omarassistant.local>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
