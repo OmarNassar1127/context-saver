@@ -94,6 +94,33 @@ Works with:
 - `MEMORY_DIR`: Path to memory files (default: `~/clawd/memory`)
 - `LIFE_AREAS`: Path to knowledge graph (default: `~/life/areas`)
 
+## Automatic Monitoring
+
+### Via Clawdbot Cron (recommended)
+Add a cron job that checks every 10 minutes:
+
+```bash
+clawdbot cron add --name "context-monitor" \
+  --schedule "*/10 * * * *" \
+  --message "Check context %, save if >80%"
+```
+
+### Via Background Process
+Run the monitor daemon:
+
+```bash
+# Foreground
+npx tsx context-monitor.ts
+
+# Background
+nohup npx tsx context-monitor.ts > /tmp/context-monitor.log 2>&1 &
+```
+
+The monitor:
+- Checks context every 60 seconds
+- Triggers context-saver at 80% usage
+- Has 5-minute cooldown between saves
+
 ## License
 
 MIT
